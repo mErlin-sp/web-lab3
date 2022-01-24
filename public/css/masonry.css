@@ -1,0 +1,19 @@
+.grid {
+    margin: 10px;
+}
+
+/* clearfix */
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid-item {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: #D26;
+    border: 2px solid hsla(0, 0%, 0%, 0.5);
+    border-radius: 5px;
+}
