@@ -15,10 +15,10 @@ const app = express();
 // Register '.mustache' extension with The Mustache Express
 app.engine('mustache', mustacheExpress());
 
-app.set('views', './dist/views');
+app.set('views', path.join('dist', 'views'));
 app.set('view engine', 'mustache');
 
-app.use(express.static('./dist/public'));
+app.use(express.static(path.join('dist', 'public')));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
