@@ -1,15 +1,13 @@
-const createError = require('http-errors');
 const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const db = require('./database');
+
+const createError = require('http-errors');
 
 const bodyParser = require("body-parser");
-
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const mustacheExpress = require('mustache-express');
 
-const indexRouter = require('./routes/index');
+const db = require('./database');
 
 const app = express();
 const port = process.env.port || 5000
@@ -18,17 +16,18 @@ const port = process.env.port || 5000
 // Register '.mustache' extension with The Mustache Express
 app.engine('mustache', mustacheExpress());
 
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', './src/views');
 app.set('view engine', 'mustache');
 
+app.use(express.static('public'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+const indexRouter = require('./src/routes/index');
 
 app.use('/', indexRouter);
 
