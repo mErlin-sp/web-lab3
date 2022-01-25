@@ -10,7 +10,7 @@ const mustacheExpress = require('mustache-express');
 const db = require('./database');
 
 const app = express();
-const port = process.env.port || 5000
+const port = process.env.PORT || 3000
 
 // view engine setup
 // Register '.mustache' extension with The Mustache Express
