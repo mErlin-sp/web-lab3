@@ -12,6 +12,7 @@ const mustacheExpress = require('mustache-express');
 const indexRouter = require('./routes/index');
 
 const app = express();
+const port = process.env.port || 5000
 
 // view engine setup
 // Register '.mustache' extension with The Mustache Express
@@ -113,4 +114,5 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-module.exports = app;
+// Listen on port 'port'
+app.listen(port, () => console.log(`Listening on port ${port}`))

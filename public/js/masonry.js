@@ -14,7 +14,7 @@ $(document).ready(async function () {
 })
 
 function render_masonry($grid) {
-    $.get("http://localhost:3000/api/database/items", function (data) {
+    $.get("api/database/items", function (data) {
         if (data.hasOwnProperty('error')) {
             alert("GET items error. Received message: " + data['error'])
         } else {

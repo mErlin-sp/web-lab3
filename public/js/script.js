@@ -2,7 +2,7 @@ $(document).ready(function () {
     update_table()
 
     $("#add_button").click(function () {
-        $.post("http://localhost:3000/api/database/add-item",
+        $.post("api/database/add-item",
             {
                 width: $("#item_width").val(),
                 height: $("#item_height").val(),
@@ -18,7 +18,7 @@ $(document).ready(function () {
     });
 
     $('#clear_button').click(function () {
-        $.get("http://localhost:3000/api/database/clear", function (data) {
+        $.get("api/database/clear", function (data) {
             if (data.hasOwnProperty('error')) {
                 alert("GET clear error. Received message: " + data['error'])
             } else {
@@ -29,7 +29,7 @@ $(document).ready(function () {
 });
 
 function update_table() {
-    $.get("http://localhost:3000/api/database/items", function (data) {
+    $.get("api/database/items", function (data) {
         if (data.hasOwnProperty('error')) {
             alert("GET items error. Received message: " + data['error'])
         } else {
