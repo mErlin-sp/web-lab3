@@ -17,7 +17,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
             (err) => {
                 if (err) {
                     // Table already created
-                    // console.log(err)
+                    console.log(err)
                 } else {
                     // Table just created, creating some rows
                     const insert = 'INSERT INTO item (width, height, content) VALUES (?,?,?)';
